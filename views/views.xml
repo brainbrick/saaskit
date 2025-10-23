@@ -1,0 +1,22 @@
+<odoo>
+    <template id="auth_signup_fields_inherit" inherit_id="auth_signup.fields" name="Add Mobile Field to Signup">
+        <xpath expr="//div[contains(@class, 'field-password')]" position="before">
+            <div class="form-group field-mobile_number">
+                <label for="mobile_number">Mobile Number</label>
+                <input type="text" name="mobile_number" class="form-control" required="True"/>
+            </div>
+        </xpath>
+         <xpath expr="//div[contains(@class, 'field-password')]" position="before">
+            <div class="form-group field-domain1">
+                <label for="domain1">Domain</label>
+                <input type="text" name="domain1" class="form-control"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[contains(@class, 'field-domain1')]" position="before">
+            <div class="form-group field-company_name">
+                <label for="company_name">Company Name</label>
+                <input type="text" name="company_name" class="form-control"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
