@@ -25,8 +25,9 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/custom_signup_template.xml',
+        'views/custom_menu.xml',
+        'views/thank_you_page.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_databse_handler_databse_handler,databse_handler.databse_handler,model_databse_handler_databse_handler,base.group_user,1,1,1,1

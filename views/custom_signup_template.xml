@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="saas_reistration" model="website.page">
+            <field name="url">/custom/page</field>
+            <field name="is_published">True</field>
+            <field name="view_id" ref="menu_saas_reg_template"/>
+        </record>
+
+        <template id="menu_saas_reg_template" name="SaaS Registration Page">
+            <t t-call="website.layout">
+                <div class="container py-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-8 col-sm-10">
+                            <div class="card shadow-lg border-0 rounded-4">
+                                <div class="card-body p-5">
+                                    <h2 class="text-center mb-4 fw-bold text-primary">Create Your SaaS Account</h2>
+                                    <p class="text-center text-muted mb-4">
+                                        Fill in the details below to set up your account.
+                                    </p>
+
+                                    <form action="/custom/form/submit" method="post" class="needs-validation"
+                                          novalidate="novalidate">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                        <!-- Package Selection -->
+                                        <div class="mb-3">
+                                            <label for="package" class="form-label fw-semibold">Select Package</label>
+                                            <select name="package" id="package" class="form-select form-select-lg"
+                                                    required="required">
+                                                <option value="" selected="selected" disabled="disabled">Choose your
+                                                    package
+                                                </option>
+                                                <option value="package_1">Package 1 - Basic</option>
+                                                <option value="package_2">Package 2 - Standard</option>
+                                                <option value="package_3">Package 3 - Premium</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Your Email -->
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label fw-semibold">Email Address</label>
+                                            <input type="email" name="email" id="email"
+                                                   class="form-control form-control-lg" placeholder="you@example.com"
+                                                   required="required"/>
+                                        </div>
+
+                                        <!-- Your Name -->
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label fw-semibold">Full Name</label>
+                                            <input type="text" name="name" id="name"
+                                                   class="form-control form-control-lg" placeholder="John Doe"
+                                                   required="required"/>
+                                        </div>
+
+                                        <!-- Mobile Number -->
+                                        <div class="mb-3">
+                                            <label for="mobile" class="form-label fw-semibold">Mobile Number</label>
+                                            <input type="tel" name="mobile" id="mobile"
+                                                   class="form-control form-control-lg" placeholder="+1 555-555-5555"
+                                                   required="required"/>
+                                        </div>
+
+                                        <!-- Company Name -->
+                                        <div class="mb-3">
+                                            <label for="company" class="form-label fw-semibold">Company Name</label>
+                                            <input type="text" name="company" id="company"
+                                                   class="form-control form-control-lg" placeholder="Your Company Name"
+                                                   required="required"/>
+                                        </div>
+
+                                        <!-- Domain -->
+                                        <div class="mb-3">
+                                            <label for="domain" class="form-label fw-semibold">Domain</label>
+                                            <input type="text" name="domain" id="domain"
+                                                   class="form-control form-control-lg" placeholder="example.odoo.com"
+                                                   required="required"/>
+                                        </div>
+
+                                        <!-- Password -->
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label fw-semibold">Password</label>
+                                            <input type="password" name="password" id="password"
+                                                   class="form-control form-control-lg" placeholder="********"
+                                                   required="required"/>
+                                        </div>
+
+                                        <!-- Confirm Password -->
+                                        <div class="mb-4">
+                                            <label for="confirm_password" class="form-label fw-semibold">Confirm
+                                                Password
+                                            </label>
+                                            <input type="password" name="confirm_password" id="confirm_password"
+                                                   class="form-control form-control-lg" placeholder="********"
+                                                   required="required"/>
+                                        </div>
+
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                                                Create Account
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>
