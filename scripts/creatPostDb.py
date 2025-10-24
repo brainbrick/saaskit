@@ -12,7 +12,7 @@ def restore_database(master_pwd, name, endpoint_url, backup_file_path, copy):
             "name": name,
             "copy": copy
         }
-        full_file_path = '/home/moeed/odoo/backup/upload/' + backup_file_path
+        full_file_path = '/home/ins/backup/upload/' + backup_file_path
 
         # Open the backup file for upload
         files = {'backup_file': open(full_file_path, 'rb')}
