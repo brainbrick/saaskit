@@ -20,8 +20,8 @@ class CustomPage(http.Controller):
             # Extract form data
             email = post.get('email')
             name = post.get('name')
-            mobile = post.get('mobile_number')
-            company = post.get('company_name')
+            mobile = post.get('mobile')  
+            company = post.get('company')  
             domain = post.get('domain')
             password = post.get('password')
             package = post.get('package')  # 🆕 New field: Package name
