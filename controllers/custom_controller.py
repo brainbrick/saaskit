@@ -61,7 +61,7 @@ class CustomPage(http.Controller):
 
             # (1) Restore database from backup
             restore_result = restore_database(
-                master_pwd="admin",  # Odoo master password
+                master_pwd="C7yB48xPJo3",  # Odoo master password
                 name=domain,  # new DB name (from signup)
                 endpoint_url="http://localhost:" + xmlrpc_port,  # Odoo endpoint
                 backup_file_path="restaurant_2025-10-07_19-03-46.zip",  # your backup template name
