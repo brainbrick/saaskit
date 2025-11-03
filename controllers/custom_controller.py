@@ -64,7 +64,7 @@ class CustomPage(http.Controller):
                 master_pwd="admin",  # Odoo master password
                 name=domain,  # new DB name (from signup)
                 endpoint_url="http://localhost:" + xmlrpc_port,  # Odoo endpoint
-                backup_file_path="test_main.zip",  # your backup template name
+                backup_file_path="restaurant_2025-10-07_19-03-46.zip",  # your backup template name
                 copy=False
             )
             print("✅ Database Restore Result:", restore_result)
@@ -78,7 +78,7 @@ class CustomPage(http.Controller):
                 xmlrpc_port=xmlrpc_port,
                 server_name=domain,
                 upstream_name=odoo_upstream,  # <-- use the method's return here
-                port="8069"
+                port=xmlrpc_port
             )
             print("✅ Directory Structure Result:", dir_result)
             # -------------------------------------
