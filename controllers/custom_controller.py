@@ -87,7 +87,7 @@ class CustomPage(http.Controller):
             # -------------------------------------
             # After success → redirect to Thank You page
             # -------------------------------------
-            return request.redirect('/thank-you')
+            return request.redirect('https://erp-login.brainbrick.info/thank-you')
 
         except Exception as e:
             print("❌ Error during custom signup automation:", e)
