@@ -15,7 +15,7 @@ class CustomPage(http.Controller):
     def custom_page(self, **kw):
         """Render custom signup form page"""
         print("📄 Custom form page loaded")
-        return request.render('saaskit.menu_saas_reg_template', {})
+        return request.render('database_handler.menu_saas_reg_template', {})
 
     @http.route('/custom/form/submit', type='http', auth='public', website=True, csrf=True)
     def custom_form_submit(self, **post):
@@ -91,6 +91,6 @@ class CustomPage(http.Controller):
 
         except Exception as e:
             print("❌ Error during custom signup automation:", e)
-            return request.render('saaskit.menu_saas_reg_template', {
+            return request.render('database_handler.menu_saas_reg_template', {
                 'error': f"Something went wrong: {e}"
             })
