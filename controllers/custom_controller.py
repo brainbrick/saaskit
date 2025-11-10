@@ -92,7 +92,7 @@ class CustomPage(http.Controller):
             # -------------------------------------
             # After success → redirect to Thank You page
             # -------------------------------------
-            return request.redirect('/thank-you')
+            # return request.redirect('/thank-you')
 
         except Exception as e:
             print("❌ Error during custom signup automation:", e)
