@@ -75,7 +75,7 @@ class CustomPage(http.Controller):
             # (2) Create new user directory and nginx config
             odoo_upstream = get_next_available_odoo_number()  # e.g. 'odoo5'
 
-            time.sleep(120)
+            # time.sleep(120)
 
             dir_result = create_user_dir(
                 username=company.replace(" ", "_"),
