@@ -1,6 +1,7 @@
 import os
 import argparse
 import subprocess
+import time
 
 def create_user_dir(username, custom_db_name, xmlrpc_port, server_name, upstream_name, port, base_dir="/odoo_dir"):
     """
@@ -134,6 +135,12 @@ WantedBy=multi-user.target"""
             print(f"Error executing '{command}': {error}")
         else:
             print(f"Output of '{command}': {output}")
+
+            restart_again_commands = [
+                f"sudo systemctl restart odoo-{username}.service"
+            ]
+            time.sleep(120)
+            execute_command(restart_again_commands)
 
     value = f"Directory structure created for user: {username}, Configuration file created: {conf_file_path}, Log directory created: {log_dir}, Nginx configuration file generated: {nginx_conf_path}, Systemd service unit file generated: {service_path}"
     return value
