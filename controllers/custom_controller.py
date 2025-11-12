@@ -37,50 +37,50 @@ class CustomPage(http.Controller):
 
 
             # Basic validation
-            # if not (email and name and company and domain and password):
-            #     return request.render('database_handler.menu_saas_reg_template', {
-            #         'error': "⚠️ Please fill all required fields."
-            #     })
-            #
-            # # -------------------------------------
-            # # Run Nginx info logging
-            # # -------------------------------------
-            # log_nginx_info()
-            # print("📝 Logged current Nginx upstream/server info.")
-            #
-            # input_file = "/home/odoo_port-info.txt"
-            # output_upstream_file = "/home/upstream_port_info/odoo_upstream_info.txt"
-            # output_port_file = "/home/upstream_port_info/odoo_port-info.txt"
-            #
-            # update_files(input_file, output_upstream_file, output_port_file)
-            # print("✅ Port info files updated successfully!")
-            #
-            # # Random port for new instance
-            # xmlrpc_port = str(get_free_port())
-            # print(f"🚀 New Instance Setup for {company} ({domain}) on port {xmlrpc_port}")
-            #
-            # # (1) Restore database from backup
-            # restore_result = restore_database(
-            #     master_pwd="C7yB48xPJo3",
-            #     name=domain,
-            #     endpoint_url="http://localhost:9029",
-            #     backup_file_path="restaurant_2025-10-07_19-03-46.zip",
-            #     copy=False
-            # )
-            # print("✅ Database Restore Result:", restore_result)
-            #
-            # # (2) Create new user directory and nginx config
-            # odoo_upstream = get_next_available_odoo_number()  # e.g. 'odoo5'
-            #
-            # dir_result = create_user_dir(
-            #     username=company.replace(" ", "_"),
-            #     custom_db_name=domain,
-            #     xmlrpc_port=xmlrpc_port,
-            #     server_name=domain,
-            #     upstream_name=odoo_upstream,
-            #     port=xmlrpc_port
-            # )
-            # print("✅ Directory Structure Result:", dir_result)
+            if not (email and name and company and domain and password):
+                return request.render('database_handler.menu_saas_reg_template', {
+                    'error': "⚠️ Please fill all required fields."
+                })
+            
+            # -------------------------------------
+            # Run Nginx info logging
+            # -------------------------------------
+            log_nginx_info()
+            print("📝 Logged current Nginx upstream/server info.")
+            
+            input_file = "/home/odoo_port-info.txt"
+            output_upstream_file = "/home/upstream_port_info/odoo_upstream_info.txt"
+            output_port_file = "/home/upstream_port_info/odoo_port-info.txt"
+            
+            update_files(input_file, output_upstream_file, output_port_file)
+            print("✅ Port info files updated successfully!")
+            
+            # Random port for new instance
+            xmlrpc_port = str(get_free_port())
+            print(f"🚀 New Instance Setup for {company} ({domain}) on port {xmlrpc_port}")
+            
+            # (1) Restore database from backup
+            restore_result = restore_database(
+                master_pwd="C7yB48xPJo3",
+                name=domain,
+                endpoint_url="http://localhost:9029",
+                backup_file_path="restaurant_2025-10-07_19-03-46.zip",
+                copy=False
+            )
+            print("✅ Database Restore Result:", restore_result)
+            
+            # (2) Create new user directory and nginx config
+            odoo_upstream = get_next_available_odoo_number()  # e.g. 'odoo5'
+            
+            dir_result = create_user_dir(
+                username=company.replace(" ", "_"),
+                custom_db_name=domain,
+                xmlrpc_port=xmlrpc_port,
+                server_name=domain,
+                upstream_name=odoo_upstream,
+                port=xmlrpc_port
+            )
+            print("✅ Directory Structure Result:", dir_result)
 
             # -------------------------------------
             # 🆕 Create SaaS database record
